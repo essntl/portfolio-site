@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+@theme {
+  --animate-shine: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: -100%;
+  }
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -15,38 +28,34 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #f7f7f7;
-    background-color: #ffffff;
+
+:root {
+    color: #b3aeae;
+    background-color: #000000;
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-  h1 {
-    color: #ffffff;
-  }
+
+h1 {
+color: white;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    color: #b3aeae;
-    background-color: #060606;
-  }
-  a {
-    color: #ffffff;
-  }
-  a:hover {
-    color: #ffffff;
-  }
-  button {
-    background-color: #1a1a1a;
-  }
-  h1 {
-    color: #ffffff;
-  }
+a {
+  position: relative;
+  transition: color 0.3s ease;
+  color: white;
+  text-decoration: none;
+}
 
+a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+a:hover::after {
+  width: 100%;
 }

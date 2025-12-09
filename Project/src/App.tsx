@@ -1,8 +1,9 @@
 import "./App.css";
 import Navigation from "./components/Navigation";
-import Header from "./components/Header";
+import Hero from "./components/Hero";
 import Aurora from "./components/Aurora";
 import AnimatedContent from "./components/AnimatedContent";
+import Cards from "./components/Cards";
 
 function App() {
   return (
@@ -16,11 +17,12 @@ function App() {
       </div>
 
       <div className="relative z-10">
-        <AnimatedContent duration={1} ease="power3.out" distance={50}>
+        <AnimatedContent className="pt-8" duration={1} ease="power3.out" distance={50}>
           <Navigation />
         </AnimatedContent>
-        <div className="pt-24">
-          <Header />
+        <div className="pt-30 text-center px-4">
+          <Hero />
+          <Cards />
         </div>
       </div>
     </>
