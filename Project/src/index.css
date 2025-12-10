@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-@theme {
-  --animate-shine: shine 5s linear infinite;
-}
-
 @keyframes shine {
   0% {
     background-position: 100%;
@@ -12,6 +8,45 @@
     background-position: -100%;
   }
 }
+
+@keyframes star-movement-bottom {
+  0% {
+    transform: translate(0%, 0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-100%, 0%);
+    opacity: 0;
+  }
+}
+
+@keyframes star-movement-top {
+  0% {
+    transform: translate(0%, 0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100%, 0%);
+    opacity: 0;
+  }
+}
+
+@layer utilities {
+  .animate-shine {
+    animation: shine 5s linear infinite;
+  }
+  
+  .animate-star-movement-bottom {
+    animation: star-movement-bottom linear infinite alternate;
+  }
+  
+  .animate-star-movement-top {
+    animation: star-movement-top linear infinite alternate;
+  }
+}
+
+
+
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;

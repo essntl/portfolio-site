@@ -92,6 +92,14 @@ const FadeContent: React.FC<FadeContentProps> = ({
       onEnter: () => tl.play()
     });
 
+    // Refresh ScrollTrigger and check if element is already in view
+    ScrollTrigger.refresh();
+    setTimeout(() => {
+      if (st.isActive || st.progress > 0) {
+        tl.play();
+      }
+    }, 100);
+
     return () => {
       st.kill();
       tl.kill();

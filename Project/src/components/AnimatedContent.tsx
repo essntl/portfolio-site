@@ -64,8 +64,7 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
     gsap.set(el, {
       [axis]: offset,
       scale,
-      opacity: animateOpacity ? initialOpacity : 1,
-      visibility: 'visible'
+      opacity: animateOpacity ? initialOpacity : 1
     });
 
     const tl = gsap.timeline({
@@ -103,6 +102,14 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
       onEnter: () => tl.play()
     });
 
+    // Refresh ScrollTrigger and check if element is already in view
+    ScrollTrigger.refresh();
+    setTimeout(() => {
+      if (st.isActive || st.progress > 0) {
+        tl.play();
+      }
+    }, 100);
+
     return () => {
       st.kill();
       tl.kill();
@@ -127,7 +134,7 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
   ]);
 
   return (
-    <div ref={ref} className={`invisible ${className}`} {...props}>
+    <div ref={ref} className={className} style={{ opacity: 0 }} {...props}>
       {children}
     </div>
   );
