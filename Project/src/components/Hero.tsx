@@ -74,6 +74,7 @@ function Hero() {
                 View Projects
               </button>
             </ElectricBorder>
+
           </div>
         </AnimatedContent>
       </div>

@@ -21,8 +21,8 @@ function Navigation() {
           </a>
         </li>
         <li>
-          <a href="#services" className="text-md md:text-md font-medium hover:text-purple-400 transition-colors">
-            Services
+          <a href="#projects" className="text-md md:text-md font-medium hover:text-purple-400 transition-colors">
+            Projects
           </a>
         </li>
         <li>

@@ -29,7 +29,9 @@ function App() {
         </AnimatedContent>
         <div className="pt-30 text-center px-4">
           <Hero />
+        <div id="about">
           <About />
+        </div>
           <Cards />
         </div>
       </div>

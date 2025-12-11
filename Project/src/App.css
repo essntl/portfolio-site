@@ -12,9 +12,14 @@ html, body {
   height: 100%;
   overflow-x: hidden;
   position: relative;
+  scroll-behavior: smooth;
 }
 
 body {
   min-height: 100vh;
+}
+
+#about, #projects {
+  scroll-margin-top: 20vh;
 }
 
