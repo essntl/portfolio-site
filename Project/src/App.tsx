@@ -6,7 +6,6 @@ import AnimatedContent from "./components/AnimatedContent";
 import Cards from "./components/Cards";
 import About from "./components/About";
 
-
 function App() {
   return (
     <>
@@ -29,10 +28,12 @@ function App() {
         </AnimatedContent>
         <div className="pt-30 text-center px-4">
           <Hero />
-        <div id="about">
-          <About />
-        </div>
-          <Cards />
+          <div id="about">
+            <About />
+          </div>
+          <div id="projects">
+            <Cards />
+          </div>
         </div>
       </div>
     </>

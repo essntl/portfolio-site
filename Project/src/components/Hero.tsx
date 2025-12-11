@@ -2,6 +2,8 @@ import SplitText from "./SplitText";
 import FadeContent from "./FadeContent";
 import ElectricBorder from "./ElectricBorder";
 import AnimatedContent from "./AnimatedContent";
+import profileImg from "../assets/img.jpg";
+
 
 function Hero() {
   return (
@@ -9,7 +11,7 @@ function Hero() {
       <div className="flex items-center justify-center flex-col space-y-6">
         <AnimatedContent duration={1} ease="power3.out" distance={30}>
           <img
-            src="src/assets/img.jpg"
+            src={profileImg}
             alt=""
             className="rounded-4xl w-48 h-48 object-cover"
           />

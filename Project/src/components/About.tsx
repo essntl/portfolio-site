@@ -2,10 +2,10 @@ import FadeContent from "./FadeContent";
 
 function About() {
   return (
-    <FadeContent duration={2} blur={true} ease="power3.out" threshold={0.1}>
+    <FadeContent duration={2} blur={true} ease="power3.out" threshold={0.5}>
         <div className="max-w-7xl mx-auto mt-16 mb-16 flex flex-col md:flex-row justify-between gap-6">
             <div className="text-white text-left flex-1 bg-black/40 backdrop-blur-md rounded-xl shadow-2xl py-8 px-12">
-            <h1 className="text-center text-4xl font-bold mb-8 bg-clip-text text-transparent">
+            <h1 className="text-center text-4xl font-bold mb-8 bg-clip-text text-transparent font-outfit">
               About Me
             </h1>
             <div className="space-y-6 text-gray-200 text-lg leading-relaxed font-light">
@@ -21,7 +21,7 @@ function About() {
             </div>
             </div>
           <div className="flex flex-col text-center bg-black/50 rounded-lg shadow-md py-6 px-12">
-            <h1 className="text-center text-3xl mb-4">Skills</h1>
+            <h1 className="text-center text-4xl font-bold mb-8 bg-clip-text text-transparent font-outfit">Skills</h1>
             <div className="flex flex-col sm:flex-row gap-8">
               <div className="flex flex-col space-y-4 pt-12">
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center">
