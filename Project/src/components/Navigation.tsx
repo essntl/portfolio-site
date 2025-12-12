@@ -34,7 +34,7 @@ function Navigation() {
           <a
             href="#home"
             onClick={(e) => handleNavClick(e, "#home")}
-            className="text-md md:text-md font-medium hover:text-purple-400 transition-colors"
+            className="text-md md:text-md font-medium relative text-white no-underline transition-colors duration-300 ease-in-out after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white after:transition-[width] after:duration-300 after:ease-in-out hover:after:w-full"
           >
             Home
           </a>
@@ -43,7 +43,7 @@ function Navigation() {
           <a
             href="#about"
             onClick={(e) => handleNavClick(e, "#about")}
-            className="text-md md:text-md font-medium hover:text-purple-400 transition-colors"
+            className="text-md md:text-md font-medium relative text-white no-underline transition-colors duration-300 ease-in-out after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white after:transition-[width] after:duration-300 after:ease-in-out hover:after:w-full"
           >
             About
           </a>
@@ -52,7 +52,7 @@ function Navigation() {
           <a
             href="#projects"
             onClick={(e) => handleNavClick(e, "#projects")}
-            className="text-md md:text-md font-medium hover:text-purple-400 transition-colors"
+            className="text-md md:text-md font-medium relative text-white no-underline transition-colors duration-300 ease-in-out after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white after:transition-[width] after:duration-300 after:ease-in-out hover:after:w-full"
           >
             Projects
           </a>
@@ -61,7 +61,7 @@ function Navigation() {
           <a
             href="#contact"
             onClick={(e) => handleNavClick(e, "#contact")}
-            className="text-md md:text-md font-medium hover:text-purple-400 transition-colors"
+            className="text-md md:text-md font-medium relative text-white no-underline transition-colors duration-300 ease-in-out after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white after:transition-[width] after:duration-300 after:ease-in-out hover:after:w-full"
           >
             Contact
           </a>

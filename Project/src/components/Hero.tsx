@@ -42,7 +42,6 @@ function Hero() {
           duration={1}
           ease="power3.out"
           distance={30}
-          className="mt-4"
         >
           <div className="flex space-x-4">
             <ElectricBorder
@@ -50,15 +49,14 @@ function Hero() {
               thickness={1}
               speed={1}
               chaos={0.1}
-              className="rounded-lg hover:scale-105 transition-all"
+              className="rounded-lg hover:scale-105 transition-all py-3"
             >
-              <button
+              <a
                 className="bg-black/20 backdrop-blur-lg border border-gray-700/20 rounded-lg px-4 py-3 hover:cursor-pointer hover:bg-red-600/10 transition-all"
-                onClick={() => window.open("https://google.com", "_blank")}
-                type="button"
+                href="#contact"
               >
                 Contact Me
-              </button>
+              </a>
             </ElectricBorder>
 
             <ElectricBorder
@@ -66,15 +64,14 @@ function Hero() {
               thickness={1}
               speed={1}
               chaos={0.1}
-              className="rounded-lg hover:scale-105 transition-all"
+              className="rounded-lg hover:scale-105 transition-all py-3"
             >
-              <button
+              <a
                 className="bg-black/20 backdrop-blur-lg border border-gray-700/20 rounded-lg px-4 py-3 hover:cursor-pointer hover:bg-purple-600/10 transition-all"
-                onClick={() => window.open("https://google.com", "_blank")}
-                type="button"
+                href="#projects"
               >
                 View Projects
-              </button>
+              </a>
             </ElectricBorder>
 
           </div>

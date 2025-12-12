@@ -2,31 +2,96 @@ import FadeContent from "./FadeContent";
 import plexrpc from "../assets/plexrpc.png";
 import artyomtechtips from "../assets/artyomtechtips.png";
 import groupdiv from "../assets/groupdiv.png";
-
+import StarBorder from "./StarBorder";
 
 function Cards() {
   return (
     <FadeContent duration={2} blur={true} ease="power3.out" threshold={0.4}>
-    <div className="my-16 px-4 max-w-7xl mx-auto">
-      <h1 className="text-4xl font-bold mb-6 text-white font-outfit">My projects</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-black/50 rounded-lg shadow-md p-6 max-w-sm mx-auto">
-          <h3 className="text-xl font-semibold mb-4">Plexamp Discord RPC</h3>
-          <img src={plexrpc} alt="" className="w-full h-48 object-cover rounded" />
-          <p className="text-gray-600 mt-2">Python Script to sync your Plexamp playback with your Discord status.</p>
+      <div className="my-16 px-4 max-w-7xl mx-auto">
+        <h1 className="text-4xl font-bold mb-6 text-white font-outfit">
+          My projects
+        </h1>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-black/50 rounded-lg shadow-md p-6 max-w-sm mx-auto">
+            <h3 className="text-xl font-semibold mb-4">Plexamp Discord RPC</h3>
+            <img
+              src={plexrpc}
+              alt=""
+              className="w-full h-48 object-cover rounded"
+            />
+            <p className="text-gray-500 mt-2">
+              Python Script to sync your Plexamp playback with your Discord
+              status with platform, artist, and time playing.
+            </p>
+            <a
+              href="https://github.com/essntl/plex-discord-rpc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 bg-black/30 hover:scale-105 border border-gray-900 text-white font-medium py-2 px-4 rounded-lg inline-block transition-all"
+            >
+              View repo
+            </a>
+          </div>
+          <div className="bg-black/50 rounded-lg shadow-md p-6 max-w-sm mx-auto">
+            <h3 className="text-xl font-semibold mb-4">ArtyomTechTips</h3>
+            <img
+              src={artyomtechtips}
+              alt=""
+              className="w-full h-48 object-cover rounded"
+            />
+            <p className="text-gray-500 mt-2">
+              A website dedicated to providing technology tips and tutorials for
+              both beginners and experts.
+            </p>
+            <a
+              href="https://artyomtechtips.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 bg-black/30 hover:scale-105 border border-gray-900 text-white font-medium py-2 px-4 rounded-lg inline-block transition-all"
+            >
+              View site
+            </a>
+          </div>
+          <div className="bg-black/50 rounded-lg shadow-md p-6 max-w-sm mx-auto">
+            <h3 className="text-xl font-semibold mb-4">
+              Advanced group creator
+            </h3>
+            <img
+              src={groupdiv}
+              alt=""
+              className="w-full h-48 object-cover rounded"
+            />
+            <p className="text-gray-500 mt-2">
+              A web group creator tool for managing and organizing groups
+              efficiently with file export/import functionality.
+            </p>
+            <a
+              href="https://github.com/essntl/groupdivisionapp"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 bg-black/30 hover:scale-105 border border-gray-900 text-white font-medium py-2 px-4 rounded-lg inline-block transition-all"
+            >
+              View repo
+            </a>
+          </div>
         </div>
-        <div className="bg-black/50 rounded-lg shadow-md p-6 max-w-sm mx-auto">
-          <h3 className="text-xl font-semibold mb-4">ArtyomTechTips</h3>
-          <img src={artyomtechtips} alt="" className="w-full h-48 object-cover rounded" />
-          <p className="text-gray-600 mt-2">A website dedicated to providing technology tips and tutorials for both beginners and experts.</p>
-        </div>
-        <div className="bg-black/50 rounded-lg shadow-md p-6 max-w-sm mx-auto">
-          <h3 className="text-xl font-semibold mb-4">Advanced group creator</h3>
-          <img src={groupdiv} alt="" className="w-full h-48 object-cover rounded" />
-          <p className="text-gray-600 mt-2">A web group creator tool for managing and organizing groups efficiently with file export/import functionality.</p>
-        </div>
+        <StarBorder
+          as="button"
+          color="#EC5AEC"
+          thickness={3.2}
+          speed="5s"
+          className="p-2"
+        >
+          <a
+            className="hover:cursor-pointer py-4 px-6"
+            href="https://github.com/essntl?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View all projects
+          </a>
+        </StarBorder>
       </div>
-    </div>
     </FadeContent>
   );
 }

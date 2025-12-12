@@ -75,25 +75,3 @@
 h1 {
 color: white;
 }
-
-a {
-  position: relative;
-  transition: color 0.3s ease;
-  color: white;
-  text-decoration: none;
-}
-
-a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: white;
-  transition: width 0.3s ease;
-}
-
-a:hover::after {
-  width: 100%;
-}
