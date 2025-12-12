@@ -104,15 +104,28 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
 
     // Refresh ScrollTrigger and check if element is already in view
     ScrollTrigger.refresh();
-    setTimeout(() => {
+    
+    const checkVisibility = () => {
       if (st.isActive || st.progress > 0) {
         tl.play();
       }
-    }, 100);
+    };
+    
+    setTimeout(checkVisibility, 100);
+    
+    // Listen for scroll events on touch devices
+    const handleScroll = () => {
+      ScrollTrigger.refresh();
+    };
+    
+    window.addEventListener('touchmove', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
       st.kill();
       tl.kill();
+      window.removeEventListener('touchmove', handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [
     container,

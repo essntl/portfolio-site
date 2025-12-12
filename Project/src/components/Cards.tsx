@@ -6,7 +6,7 @@ import StarBorder from "./StarBorder";
 
 function Cards() {
   return (
-    <FadeContent duration={2} blur={true} ease="power3.out" threshold={0.4}>
+    <FadeContent duration={2} blur={true} ease="power3.out" threshold={0.3}>
       <div className="my-16 px-4 max-w-7xl mx-auto">
         <h1 className="text-4xl font-bold mb-6 text-white font-outfit">
           My projects
@@ -88,7 +88,7 @@ function Cards() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            View all projects
+            View Github Repositories
           </a>
         </StarBorder>
       </div>

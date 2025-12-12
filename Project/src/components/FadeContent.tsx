@@ -89,16 +89,18 @@ const FadeContent: React.FC<FadeContentProps> = ({
       scroller: scrollerTarget || window,
       start: `top ${startPct}%`,
       once: true,
-      onEnter: () => tl.play()
+      onEnter: () => tl.play(),
+      onRefresh: (self) => {
+        if (self.isActive) {
+          tl.play();
+        }
+      }
     });
 
-    // Refresh ScrollTrigger and check if element is already in view
-    ScrollTrigger.refresh();
-    setTimeout(() => {
-      if (st.isActive || st.progress > 0) {
-        tl.play();
-      }
-    }, 100);
+    // Force immediate refresh
+    requestAnimationFrame(() => {
+      ScrollTrigger.refresh();
+    });
 
     return () => {
       st.kill();
