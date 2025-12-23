@@ -3,9 +3,12 @@ import FadeContent from "./FadeContent";
 import ElectricBorder from "./ElectricBorder";
 import AnimatedContent from "./AnimatedContent";
 import profileImg from "../assets/img.jpg";
-
+import { useState } from "react";
 
 function Hero() {
+  const [contactHovered, setContactHovered] = useState(false);
+  const [projectsHovered, setProjectsHovered] = useState(false);
+
   return (
     <FadeContent duration={2} blur={true} ease="power3.out" threshold={0.1}>
       <div className="flex items-center justify-center flex-col space-y-6">
@@ -44,36 +47,45 @@ function Hero() {
           distance={30}
         >
           <div className="flex space-x-4">
-            <ElectricBorder
-              color="#eb4c4c"
-              thickness={1}
-              speed={1}
-              chaos={0.1}
-              className="rounded-lg hover:scale-105 transition-all py-3"
+            <div
+              onMouseEnter={() => setContactHovered(true)}
+              onMouseLeave={() => setContactHovered(false)}
             >
-              <a
-                className="bg-black/20 backdrop-blur-lg border border-gray-700/20 rounded-lg px-4 py-3 hover:cursor-pointer hover:bg-red-600/10 transition-all"
-                href="#contact"
+              <ElectricBorder
+                color="#eb4c4c"
+                thickness={contactHovered ? 2 : 1}
+                speed={contactHovered ? 1.5 : 1}
+                chaos={contactHovered ? 0.4 : 0.2}
+                className="rounded-lg hover:scale-105 transition-all py-3"
               >
-                Contact Me
-              </a>
-            </ElectricBorder>
+                <a
+                  className="bg-gray-950/30 border border-gray-700/20 text-white rounded-lg px-4 py-3 hover:cursor-pointer hover:bg-red-600/10 transition-all"
+                  href="#contact"
+                >
+                  Contact Me
+                </a>
+              </ElectricBorder>
+            </div>
 
-            <ElectricBorder
-              color="#A78BFA"
-              thickness={1}
-              speed={1}
-              chaos={0.1}
-              className="rounded-lg hover:scale-105 transition-all py-3"
+            <div
+              onMouseEnter={() => setProjectsHovered(true)}
+              onMouseLeave={() => setProjectsHovered(false)}
             >
-              <a
-                className="bg-black/20 backdrop-blur-lg border border-gray-700/20 rounded-lg px-4 py-3 hover:cursor-pointer hover:bg-purple-600/10 transition-all"
-                href="#projects"
+              <ElectricBorder
+                color="#A78BFA"
+                thickness={projectsHovered ? 2 : 1}
+                speed={projectsHovered ? 1.5 : 1}
+                chaos={projectsHovered ? 0.4 : 0.2}
+                className="rounded-lg hover:scale-105 transition-all py-3"
               >
-                View Projects
-              </a>
-            </ElectricBorder>
-
+                <a
+                  className="bg-gray-900/40 border border-gray-700/20 text-white rounded-lg px-4 py-3 hover:cursor-pointer hover:bg-purple-600/10 transition-all"
+                  href="#projects"
+                >
+                  View Projects
+                </a>
+              </ElectricBorder>
+            </div>
           </div>
         </AnimatedContent>
       </div>
