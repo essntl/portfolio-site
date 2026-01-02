@@ -4,10 +4,27 @@ import ElectricBorder from "./ElectricBorder";
 import AnimatedContent from "./AnimatedContent";
 import profileImg from "../assets/img.jpg";
 import { useState } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 function Hero() {
   const [contactHovered, setContactHovered] = useState(false);
   const [projectsHovered, setProjectsHovered] = useState(false);
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    targetId: string,
+  ) => {
+    e.preventDefault();
+    const target = document.querySelector(targetId);
+
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 400);
+    }
+  };
 
   return (
     <FadeContent duration={2} blur={true} ease="power3.out" threshold={0.1}>
@@ -41,11 +58,7 @@ function Hero() {
             </p>
           </AnimatedContent>
         </div>
-        <AnimatedContent
-          duration={1}
-          ease="power3.out"
-          distance={30}
-        >
+        <AnimatedContent duration={1} ease="power3.out" distance={30}>
           <div className="flex space-x-4">
             <div
               onMouseEnter={() => setContactHovered(true)}
@@ -61,6 +74,7 @@ function Hero() {
                 <a
                   className="bg-gray-950/30 border border-gray-700/20 text-white rounded-lg px-4 py-3 hover:cursor-pointer hover:bg-red-600/10 transition-all"
                   href="#contact"
+                  onClick={(e) => handleNavClick(e, "#contact")}
                 >
                   Contact Me
                 </a>
@@ -81,6 +95,7 @@ function Hero() {
                 <a
                   className="bg-gray-900/40 border border-gray-700/20 text-white rounded-lg px-4 py-3 hover:cursor-pointer hover:bg-purple-600/10 transition-all"
                   href="#projects"
+                  onClick={(e) => handleNavClick(e, "#projects")}
                 >
                   View Projects
                 </a>

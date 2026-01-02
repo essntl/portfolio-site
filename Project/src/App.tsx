@@ -15,6 +15,7 @@ function App() {
           amplitude={0.5}
           blend={1}
         />
+        
       </div>
 
       <div className="relative z-10">
