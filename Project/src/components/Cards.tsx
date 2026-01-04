@@ -29,7 +29,7 @@ function Cards() {
               rel="noopener noreferrer"
               className="mt-2 bg-black/30 hover:scale-105 border border-gray-900 text-white font-medium py-2 px-4 rounded-lg inline-block transition-all"
             >
-              View repo
+              View Repo
             </a>
           </div>
           <div className="bg-black/50 rounded-lg shadow-md p-6 max-w-sm mx-auto">
@@ -49,7 +49,7 @@ function Cards() {
               rel="noopener noreferrer"
               className="mt-2 bg-black/30 hover:scale-105 border border-gray-900 text-white font-medium py-2 px-4 rounded-lg inline-block transition-all"
             >
-              View site
+              View Site
             </a>
           </div>
           <div className="bg-black/50 rounded-lg shadow-md p-6 max-w-sm mx-auto">
@@ -71,7 +71,7 @@ function Cards() {
               rel="noopener noreferrer"
               className="mt-2 bg-black/30 hover:scale-105 border border-gray-900 text-white font-medium py-2 px-4 rounded-lg inline-block transition-all"
             >
-              View repo
+              View Repo
             </a>
           </div>
         </div>
@@ -80,7 +80,9 @@ function Cards() {
           color="#EC5AEC"
           thickness={3.2}
           speed="5s"
-          className="p-2"
+          className="mt-2 "
+          paddingy={16}
+          effectHeight={20}
         >
           <a
             className="hover:cursor-pointer py-4 px-6"

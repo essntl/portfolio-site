@@ -5,6 +5,7 @@ import Aurora from "./components/Aurora";
 import AnimatedContent from "./components/AnimatedContent";
 import Cards from "./components/Cards";
 import About from "./components/About";
+import Contact from "./components/Contact"
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
           </div>
           <div id="projects">
             <Cards />
+          </div>
+          <div id="contact">
+            <Contact />
           </div>
         </div>
       </div>
