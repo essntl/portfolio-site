@@ -1,65 +1,46 @@
-# Portfolio Site
+# Astro Starter Kit: Basics
 
-A portfolio website built with React and TypeScript, using Vite as the build tool.  The site features animations powered by GSAP and WebGL effects using OGL.
-
-## Tech Stack
-
-This project uses React 19 with TypeScript for type safety.  Vite handles the development server and build process, providing fast refresh and optimized production builds.  The styling is done with Tailwind CSS 4.
-
-For animations and visual effects, the site uses GSAP (GreenSock Animation Platform) along with its React wrapper, and OGL for WebGL-based 3D graphics. Icons come from Lucide React and React Icons.
-
-## Project Structure
-
-```
-portfolio-site/
-├── Project/
-│   ���── src/              # Application source code
-│   ├── public/           # Static assets
-│   ├── index.html        # Main HTML entry point
-│   ├── vite.config.ts    # Vite configuration
-│   ├── tsconfig.json     # TypeScript configuration
-│   ├── components.json   # Component configuration
-│   ├── dockerfile        # Docker setup
-│   └── package.json      # Project dependencies
+```sh
+npm create astro@latest -- --template basics
 ```
 
-## Getting Started
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-Navigate to the Project directory and install dependencies:
+## 🚀 Project Structure
 
-```bash
-cd Project
-npm install
+Inside of your Astro project, you'll see the following folders and files:
+
+```text
+/
+├── public/
+│   └── favicon.svg
+├── src
+│   ├── assets
+│   │   └── astro.svg
+│   ├── components
+│   │   └── Welcome.astro
+│   ├── layouts
+│   │   └── Layout.astro
+│   └── pages
+│       └── index.astro
+└── package.json
 ```
 
-Run the development server:
+To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
-```bash
-npm run dev
-```
+## 🧞 Commands
 
-Build for production:
+All commands are run from the root of the project, from a terminal:
 
-```bash
-npm run build
-```
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-Preview the production build:
+## 👀 Want to learn more?
 
-```bash
-npm run preview
-```
-
-## Main Libraries
-
-- React 19.2.0 - UI framework
-- TypeScript 5.9 - Type checking
-- Vite 7.2 - Build tool and dev server
-- Tailwind CSS 4.1 - Styling
-- GSAP 3.14 - Animations
-- OGL 1.0 - WebGL library
-- Lucide React - Icon library
-
-## Docker
-
-The project includes a Dockerfile, since that's how I run it on my server :)
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
