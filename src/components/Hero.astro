@@ -3,7 +3,7 @@ import avatar from "/public/avatar.jpg"
 import { Image } from "astro:assets";
 ---
 
-<section class="relative flex flex-col items-center justify-center min-h-[90vh] text-center px-4">
+<section class="relative flex flex-col items-center justify-center min-h-[40vh] pt-64 pb-15 text-center px-4">
   <!-- Background gradient -->
   <div class="absolute inset-0 -z-10 bg-black">
 
@@ -16,6 +16,7 @@ import { Image } from "astro:assets";
     width={512}
     height={512}
     class="w-48 h-48 rounded-2xl object-cover shadow-lg mb-6"
+    loading="eager" 
   />
 
   <!-- Hero text -->

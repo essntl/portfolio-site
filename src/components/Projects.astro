@@ -1,0 +1,68 @@
+---
+const projects = [
+  {
+    title: "Pomodori",
+    description: "Productivity tool set website centered around a Pomodoro timer, has calendar and notes/to-do functionality. Created for personal use and a Codedex course",
+    image: "https://picsum.photos/seed/focus-timer/800/500",
+    url: "https://github.com/essntl/claritydocs",
+    repo: "https://github.com/essntl/claritydocs",
+    tags: ["astro", "typescript"],
+  },
+  {
+    title: "ClarityDocs",
+    description: " Claritydocs - Open-source technical encyclopedia with beginner and advanced sections for each topic. Markdown-based, self-hostable, contribution via pull requests.",
+    image: "https://picsum.photos/seed/palette-lab/800/500",
+    url: "https://example.com",
+    repo: "https://github.com/essntl/claritydocs",
+    tags: ["react", "tailwindcss"],
+  },
+  {
+    title: "lumen",
+    description: "A high-resolution photo and video sharing platform built for trip photography. Upload, organize, and share original-quality media with anyone through clean, fast galleries. ",
+    image: "https://picsum.photos/seed/readwise-digest/800/500",
+    url: "https://example.com",
+    repo: "https://github.com/essntl/lumen",
+    tags: ["javascript", "css"],
+  },
+  {
+    title: "School council president promotion site",
+    description: "Promotion site for a School student council president candidate. Made as an assignment at Elevebakken VGS.",
+    image: "https://picsum.photos/seed/devfolio-cli/800/500",
+    url: "https://kandidat.artemk.dev",
+    repo: "https://github.com/essntl/councilcandidatewebsite",
+    tags: ["typescript", "git"],
+  },
+];
+---
+
+<section id="projects" class="max-w-[68rem] mx-auto px-6 pb-32">
+  <p class="text-xs tracking-[0.2em] uppercase text-zinc-400 mb-10">Projects</p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    {projects.map(project => (
+      <article class="group flex flex-col border border-zinc-800 rounded-xl overflow-hidden opacity-[0.85] hover:opacity-100 hover:-translate-y-0.75 hover:border-zinc-700 transition">
+        <div class="aspect-8/5 overflow-hidden bg-zinc-900">
+          <img
+            src={project.image}
+            alt={project.title}
+            loading="lazy"
+            class="w-full h-full object-cover block transition-transform duration-300 group-hover:scale-[1.03]"
+          />
+        </div>
+        <div class="flex flex-col gap-3 p-6">
+          <h3 class="text-[1.15rem] font-semibold">{project.title}</h3>
+          <p class="text-zinc-400 leading-[1.6] text-[0.9rem]">{project.description}</p>
+          <ul class="flex flex-wrap gap-2 list-none p-0 mt-1">
+            {project.tags.map(tag => (
+              <li class="text-[0.7rem] tracking-wider uppercase text-zinc-400 border border-zinc-800 rounded-full py-[0.2rem] px-[0.6rem]">{tag}</li>
+            ))}
+          </ul>
+          <div class="flex gap-4 mt-2 text-[0.85rem]">
+            <a class="text-zinc-200 no-underline hover:underline" href={project.url} target="_blank" rel="noopener noreferrer">View project →</a>
+            <a class="text-zinc-400 no-underline hover:underline" href={project.repo} target="_blank" rel="noopener noreferrer">Source ↗</a>
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
