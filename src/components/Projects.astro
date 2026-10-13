@@ -11,7 +11,7 @@ const imageClass = "w-full h-full object-cover object-top block transition-trans
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
     {projects.map(project => (
-      <article class="group flex flex-col border border-zinc-800 rounded-xl overflow-hidden opacity-[0.85] hover:opacity-100 hover:-translate-y-0.75 hover:border-zinc-700 transition">
+      <article class="group flex flex-col border border-zinc-800 rounded-xl overflow-hidden hover:-translate-y-0.75 hover:border-zinc-700 transition">
         <div class="aspect-8/5 overflow-hidden bg-zinc-900">
           {typeof project.image === "string" ? (
             <img src={project.image} alt={project.title} loading="lazy" class={imageClass} />

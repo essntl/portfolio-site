@@ -1,12 +1,12 @@
-// Content for the site. Add projects, stack items or links here.
+// Content for the site.
 
 import councilCandidate from "../assets/projects/council-candidate.png";
+import { github, githubUser } from "./github";
 
 export const stats = [
   { label: "Years of experience", value: 3 },
-  // Real time data pulling from github will be added later
   { label: "Projects shipped", value: 5 },
-  { label: "Public repos", value: 16 },
+  { label: "Public repos", value: github.publicRepos },
 ];
 
 // Slugs from https://simpleicons.org
@@ -15,8 +15,8 @@ export const stack = ["html5", "css", "javascript", "typescript", "astro", "tail
 type Project = {
   title: string;
   description: string;
-  image: ImageMetadata | string; // local import from src/assets, or a remote URL
-  url?: string; // live site, leave out if there is none
+  image: ImageMetadata | string;
+  url?: string;
   repo: string;
   tags: string[];
 };
@@ -24,21 +24,21 @@ type Project = {
 export const projects: Project[] = [
   {
     title: "Pomodori",
-    description: "Productivity tool set website centered around a Pomodoro timer, with calendar and notes/to-do functionality. Created for personal use and a Codedex course.",
+    description: "A focus toolkit built around a Pomodoro timer, with a calendar and notes/to-do list in one place instead of spread across separate apps. Made for my own daily use and a Codedex course.",
     image: "https://picsum.photos/seed/focus-timer/800/500",
     repo: "https://github.com/essntl/pomidori",
     tags: ["astro", "typescript"],
   },
   {
     title: "ClarityDocs",
-    description: "Open-source technical encyclopedia with beginner and advanced sections for each topic. Markdown-based, self-hostable, contribution via pull requests.",
+    description: "Wikipedia is hard to learn from as a beginner. ClarityDocs is an open-source technical encyclopedia where every topic has a beginner and an advanced section. Markdown-based, self-hostable, open to contributions.",
     image: "https://picsum.photos/seed/palette-lab/800/500",
     repo: "https://github.com/essntl/claritydocs",
     tags: ["react", "tailwindcss"],
   },
   {
     title: "Lumen",
-    description: "A high-resolution photo and video sharing platform built for trip photography. Upload, organize, and share original-quality media with anyone through clean, fast galleries.",
+    description: "There was no easy way to share full-quality trip photos with friends. Lumen lets you upload, organize and share original-quality photos and videos through clean, fast galleries.",
     image: "https://picsum.photos/seed/readwise-digest/800/500",
     repo: "https://github.com/essntl/lumen",
     tags: ["javascript", "css"],
@@ -56,5 +56,5 @@ export const projects: Project[] = [
 export const contacts = [
   { label: "contact@artemk.dev", href: "mailto:contact@artemk.dev" },
   { label: "Telegram", href: "https://t.me/artemk_dev" },
-  { label: "GitHub", href: "https://github.com/essntl" },
+  { label: "GitHub", href: `https://github.com/${githubUser}` },
 ];

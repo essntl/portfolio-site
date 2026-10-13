@@ -6,6 +6,10 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://artemk.dev',
+  image: {
+    // Allow Astro to optimize the GitHub avatar
+    domains: ['avatars.githubusercontent.com'],
+  },
   vite: {
     plugins: [tailwindcss()]
   }

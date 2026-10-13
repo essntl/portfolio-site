@@ -10,9 +10,10 @@ import { stack, stats } from '../data/site';
     <div>
       <h2 class="text-[clamp(1.75rem,3vw,2.25rem)] mb-5">A bit about me</h2>
       <p class="text-zinc-400 leading-[1.7] max-w-xl">
-        I build front-end interfaces with a focus on clarity — clean structure,
-        fast pages, and details that feel intentional. I care less about shipping
-        something that merely works and more about shipping something I'd want to use.
+        Most of my projects start with a small, real-life annoyance — sharing trip
+        photos without losing quality, or trying to learn from a Wikipedia page
+        written for experts. I build the tool I wish existed and keep it as simple
+        as possible, because simplicity is what people actually need.
       </p>
     </div>
 
@@ -30,7 +31,7 @@ import { stack, stats } from '../data/site';
     <SectionLabel>Stack</SectionLabel>
     <ul class="flex flex-wrap gap-x-6 gap-y-4 list-none p-0">
       {stack.map(icon => (
-        <li class="flex items-center gap-2 opacity-45 hover:opacity-100 hover:-translate-y-0.5 transition">
+        <li class="flex items-center gap-2 opacity-70 hover:opacity-100 hover:-translate-y-0.5 transition">
           <img src={`https://cdn.simpleicons.org/${icon}/white`} alt="" loading="lazy" class="w-6 h-6" />
           <span class="text-[0.85rem] text-zinc-400">{icon}</span>
         </li>
