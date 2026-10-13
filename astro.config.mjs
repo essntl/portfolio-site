@@ -7,8 +7,8 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://artemk.dev',
   image: {
-    // Allow Astro to optimize the GitHub avatar
-    domains: ['avatars.githubusercontent.com'],
+    // Remote hosts Astro is allowed to optimize images from
+    domains: ['avatars.githubusercontent.com', 'picsum.photos', 'fastly.picsum.photos'],
   },
   vite: {
     plugins: [tailwindcss()]

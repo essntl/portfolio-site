@@ -1,6 +1,14 @@
 ---
 import SectionLabel from './SectionLabel.astro';
+import * as simpleIcons from 'simple-icons';
 import { stack, stats } from '../data/site';
+
+const icons = Object.values(simpleIcons);
+const stackIcons = stack.map(slug => {
+  const icon = icons.find(i => i.slug === slug);
+  if (!icon) throw new Error(`Unknown simple-icons slug: ${slug}`);
+  return icon;
+});
 ---
 
 <section id="about" class="max-w-[68rem] mx-auto py-20 md:py-32 px-6">
@@ -30,10 +38,12 @@ import { stack, stats } from '../data/site';
   <div class="mt-16 md:mt-24">
     <SectionLabel>Stack</SectionLabel>
     <ul class="flex flex-wrap gap-x-6 gap-y-4 list-none p-0">
-      {stack.map(icon => (
+      {stackIcons.map(icon => (
         <li class="flex items-center gap-2 opacity-70 hover:opacity-100 hover:-translate-y-0.5 transition">
-          <img src={`https://cdn.simpleicons.org/${icon}/white`} alt="" loading="lazy" class="w-6 h-6" />
-          <span class="text-[0.85rem] text-zinc-400">{icon}</span>
+          <svg role="img" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="w-6 h-6">
+            <path d={icon.path} />
+          </svg>
+          <span class="text-[0.85rem] text-zinc-400">{icon.title}</span>
         </li>
       ))}
     </ul>

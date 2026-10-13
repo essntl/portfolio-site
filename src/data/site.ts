@@ -9,8 +9,8 @@ export const stats = [
   { label: "Public repos", value: github.publicRepos },
 ];
 
-// Slugs from https://simpleicons.org
-export const stack = ["html5", "css", "javascript", "typescript", "astro", "tailwindcss", "react", "git", "next.js", "docker", "proxmox", "linux"];
+// Slugs from https://simpleicons.org (icons come from the simple-icons package)
+export const stack = ["html5", "css", "javascript", "typescript", "astro", "tailwindcss", "react", "git", "nextdotjs", "docker", "proxmox", "linux"];
 
 type Project = {
   title: string;
