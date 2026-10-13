@@ -1,0 +1,29 @@
+---
+import SectionLabel from './SectionLabel.astro';
+import { contacts } from '../data/site';
+---
+
+<section id="contact" class="max-w-[68rem] mx-auto px-6 pb-20 md:pb-32">
+  <SectionLabel>Contact</SectionLabel>
+
+  <h2 class="text-[clamp(1.75rem,3vw,2.25rem)] mb-5">Get in touch</h2>
+  <p class="text-zinc-400 leading-[1.7] max-w-xl mb-8">
+    Have a project in mind or just want to say hi? Reach out through any of the links below.
+  </p>
+
+  <ul class="flex flex-wrap gap-6 list-none p-0 text-[0.95rem]">
+    {contacts.map(link => (
+      <li>
+        {link.href.startsWith("mailto:") ? (
+          <a class="text-zinc-200 no-underline hover:underline" href={link.href}>{link.label}</a>
+        ) : (
+          <a class="text-zinc-200 no-underline hover:underline" href={link.href} target="_blank" rel="noopener noreferrer">{link.label} ↗</a>
+        )}
+      </li>
+    ))}
+  </ul>
+</section>
+
+<footer class="max-w-[68rem] mx-auto px-6 py-8 border-t border-zinc-900 text-[0.8rem] text-zinc-500">
+  © {new Date().getFullYear()} Artyom · artemk.dev
+</footer>

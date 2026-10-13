@@ -1,17 +1,13 @@
 ---
-const user = "essntl";
-// Real time data pulling from github will be added later
-const projectsShipped = 5;
-const publicRepos = 16;
-
-const stack = ["html5", "css", "javascript", "typescript", "astro", "tailwindcss", "react", "git", "next.js", "docker", "proxmox", "linux"];
+import SectionLabel from './SectionLabel.astro';
+import { stack, stats } from '../data/site';
 ---
 
-<section id="about" class="max-w-[68rem] mx-auto py-32 px-6">
-  <p class="text-xs tracking-[0.2em] uppercase text-zinc-400 mb-10">About</p>
+<section id="about" class="max-w-[68rem] mx-auto py-20 md:py-32 px-6">
+  <SectionLabel>About</SectionLabel>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start">
-    <div class="about-copy">
+    <div>
       <h2 class="text-[clamp(1.75rem,3vw,2.25rem)] mb-5">A bit about me</h2>
       <p class="text-zinc-400 leading-[1.7] max-w-xl">
         I build front-end interfaces with a focus on clarity — clean structure,
@@ -20,28 +16,22 @@ const stack = ["html5", "css", "javascript", "typescript", "astro", "tailwindcss
       </p>
     </div>
 
-    <dl class="grid gap-8 justify-items-end text-right">
-      <div class="flex flex-col-reverse">
-        <dt class="text-[0.8rem] text-zinc-400 mt-2">Years of experience</dt>
-        <dd class="text-[clamp(2.5rem,5vw,3.5rem)] font-bold leading-none">3</dd>
-      </div>
-      <div class="flex flex-col-reverse">
-        <dt class="text-[0.8rem] text-zinc-400 mt-2">Projects shipped</dt>
-        <dd class="text-[clamp(2.5rem,5vw,3.5rem)] font-bold leading-none">{projectsShipped}</dd>
-      </div>
-      <div class="flex flex-col-reverse">
-        <dt class="text-[0.8rem] text-zinc-400 mt-2">Public repos</dt>
-        <dd class="text-[clamp(2.5rem,5vw,3.5rem)] font-bold leading-none">{publicRepos}</dd>
-      </div>
+    <dl class="grid grid-cols-3 gap-4 md:grid-cols-1 md:gap-8 md:justify-items-end md:text-right">
+      {stats.map(stat => (
+        <div class="flex flex-col-reverse justify-end">
+          <dt class="text-[0.8rem] text-zinc-400 mt-2">{stat.label}</dt>
+          <dd class="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-none">{stat.value}</dd>
+        </div>
+      ))}
     </dl>
   </div>
 
-  <div class="stack">
-    <p class="text-xs tracking-[0.2em] uppercase text-zinc-400 mb-10">Stack</p>
-    <ul class="flex flex-wrap gap-6 list-none p-0">
+  <div class="mt-16 md:mt-24">
+    <SectionLabel>Stack</SectionLabel>
+    <ul class="flex flex-wrap gap-x-6 gap-y-4 list-none p-0">
       {stack.map(icon => (
         <li class="flex items-center gap-2 opacity-45 hover:opacity-100 hover:-translate-y-0.5 transition">
-          <img src={`https://cdn.simpleicons.org/${icon}/white`} alt={icon} loading="lazy" class="w-6 h-6" />
+          <img src={`https://cdn.simpleicons.org/${icon}/white`} alt="" loading="lazy" class="w-6 h-6" />
           <span class="text-[0.85rem] text-zinc-400">{icon}</span>
         </li>
       ))}
