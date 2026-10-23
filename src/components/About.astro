@@ -1,14 +1,9 @@
 ---
 import SectionLabel from './SectionLabel.astro';
-import * as simpleIcons from 'simple-icons';
+import { getIcon } from '../data/icons';
 import { stack, stats } from '../data/site';
 
-const icons = Object.values(simpleIcons);
-const stackIcons = stack.map(slug => {
-  const icon = icons.find(i => i.slug === slug);
-  if (!icon) throw new Error(`Unknown simple-icons slug: ${slug}`);
-  return icon;
-});
+const stackIcons = stack.map(getIcon);
 ---
 
 <section id="about" class="max-w-[68rem] mx-auto py-20 md:py-32 px-6">
@@ -17,12 +12,20 @@ const stackIcons = stack.map(slug => {
   <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start">
     <div>
       <h2 class="text-[clamp(1.75rem,3vw,2.25rem)] mb-5">A bit about me</h2>
-      <p class="text-zinc-400 leading-[1.7] max-w-xl">
-        Most of my projects start with a small, real-life annoyance — sharing trip
-        photos without losing quality, or trying to learn from a Wikipedia page
-        written for experts. I build the tool I wish existed and keep it as simple
-        as possible, because simplicity is what people actually need.
-      </p>
+      <div class="flex flex-col gap-4 text-zinc-400 leading-[1.7] max-w-xl">
+        <p>
+          Ever since I was a kid I've been curious about how things work. I got into
+          tech early and it stuck with me. I love taking things apart, especially
+          hardware, I run a bunch of stuff on my own server, and I have way more
+          ideas than time.
+        </p>
+        <p>
+          Most of what I build starts with something that annoys me, either because
+          it's inefficient or because it's missing a feature that feels like a no
+          brainer. So instead of waiting for someone else to fix it, I fix it myself
+          and keep it as simple as I can.
+        </p>
+      </div>
     </div>
 
     <dl class="grid grid-cols-3 gap-4 md:grid-cols-1 md:gap-8 md:justify-items-end md:text-right">

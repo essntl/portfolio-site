@@ -1,6 +1,7 @@
 // Content for the site.
 
 import councilCandidate from "../assets/projects/council-candidate.png";
+import idea from "../assets/projects/idea.png";
 import { github, githubUser } from "./github";
 
 export const stats = [
@@ -23,11 +24,12 @@ type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Pomodori",
-    description: "A focus toolkit built around a Pomodoro timer, with a calendar and notes/to-do list in one place instead of spread across separate apps. Made for my own daily use and a Codedex course.",
-    image: "https://picsum.photos/seed/focus-timer/800/500",
-    repo: "https://github.com/essntl/pomidori",
-    tags: ["astro", "typescript"],
+    title: "idea",
+    description: "A minimal, self-hostable personal site for short blog posts and long-form articles, with a Notion-like editor, comments and backups. Ships as a single Docker image.",
+    image: idea,
+    url: "https://idea.artemk.dev",
+    repo: "https://github.com/essntl/idea",
+    tags: ["next.js", "typescript", "postgresql", "docker"],
   },
   {
     title: "ClarityDocs",
@@ -52,6 +54,40 @@ export const projects: Project[] = [
     tags: ["typescript", "next.js", "tailwindcss"],
   },
 ];
+
+// Homelab setup, listed top to bottom in the order a request travels.
+// Keep it high level: no IPs, hostnames, ports or exact versions.
+export const infrastructure = {
+  layers: [
+    { icon: "cloudflare", name: "Cloudflare", role: "DNS and proxy in front of every domain" },
+    { icon: "nginxproxymanager", name: "Nginx Proxy Manager", role: "Routes each domain to its container and handles HTTPS" },
+    { icon: "docker", name: "Docker on ZimaOS", role: "Every project runs in its own container, including this site" },
+    { icon: "proxmox", name: "Proxmox VE", role: "Hypervisor for the ZimaOS VM, plus Ubuntu and Windows VMs for friends" },
+    { icon: "amd", name: "One machine", role: "Ryzen 9 5950X, 64 GB RAM, RTX 3060 and GTX 1060" },
+  ],
+  details: [
+    {
+      title: "Storage",
+      text: "1 TB NVMe for the host, plus 2× 22 TB, 6 TB and 4 TB hard drives for data and backups.",
+    },
+    {
+      title: "GPUs",
+      text: "An RTX 3060 and a GTX 1060 for GPU-accelerated workloads, or passed through to VMs that need one.",
+    },
+    {
+      title: "Deploys",
+      text: "I build images locally or with GitHub Actions, push them to Docker Hub and pull them onto the server.",
+    },
+    {
+      title: "Backups",
+      text: "Everything is backed up to mirrored drives, and the important data also goes off-site to the cloud.",
+    },
+    {
+      title: "Access",
+      text: "Remote access goes through a WireGuard VPN. Container health is managed from the ZimaOS dashboard.",
+    },
+  ],
+};
 
 export const contacts = [
   { label: "contact@artemk.dev", href: "mailto:contact@artemk.dev" },

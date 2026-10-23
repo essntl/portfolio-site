@@ -11,7 +11,7 @@ type GitHubProfile = {
 };
 
 async function getProfile(): Promise<GitHubProfile> {
-  const fallback = { avatar: fallbackAvatar.src, publicRepos: 16 };
+  const fallback = { avatar: fallbackAvatar.src, publicRepos: 17 };
 
   try {
     const res = await fetch(`https://api.github.com/users/${githubUser}`, {

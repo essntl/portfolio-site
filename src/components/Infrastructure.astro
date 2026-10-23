@@ -1,0 +1,45 @@
+---
+import SectionLabel from './SectionLabel.astro';
+import { getIcon } from '../data/icons';
+import { infrastructure } from '../data/site';
+
+const layers = infrastructure.layers.map(layer => ({ ...layer, icon: getIcon(layer.icon) }));
+---
+
+<section id="infrastructure" class="max-w-[68rem] mx-auto px-6 pb-20 md:pb-32">
+  <SectionLabel>Infrastructure</SectionLabel>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start">
+    <div>
+      <h2 class="text-[clamp(1.75rem,3vw,2.25rem)] mb-5">Where it all runs</h2>
+      <p class="text-zinc-400 leading-[1.7] max-w-xl mb-8">
+        Everything on this page, including the site itself, runs on one machine
+        that I built and manage myself. It's where I host my projects, run VMs for
+        friends and try out whatever I'm playing around with.
+      </p>
+
+      <dl class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
+        {infrastructure.details.map(detail => (
+          <div>
+            <dt class="text-[0.95rem] text-zinc-200 mb-1">{detail.title}</dt>
+            <dd class="text-[0.85rem] text-zinc-400 leading-[1.6]">{detail.text}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+
+    <ol class="list-none p-0 border border-zinc-800 rounded-xl divide-y divide-zinc-800">
+      {layers.map(layer => (
+        <li class="flex items-start gap-4 p-5">
+          <svg role="img" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="w-5 h-5 mt-0.5 shrink-0 opacity-70">
+            <path d={layer.icon.path} />
+          </svg>
+          <div>
+            <p class="text-[0.95rem] text-zinc-200">{layer.name}</p>
+            <p class="text-[0.85rem] text-zinc-400 leading-[1.6]">{layer.role}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
