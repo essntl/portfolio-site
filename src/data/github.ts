@@ -6,12 +6,13 @@ import fallbackAvatar from "../assets/avatar.jpg";
 export const githubUser = "essntl";
 
 type GitHubProfile = {
-  avatar: string;
+  // Remote URL from GitHub, or the bundled fallback image
+  avatar: string | ImageMetadata;
   publicRepos: number;
 };
 
 async function getProfile(): Promise<GitHubProfile> {
-  const fallback = { avatar: fallbackAvatar.src, publicRepos: 17 };
+  const fallback = { avatar: fallbackAvatar, publicRepos: 17 };
 
   try {
     const res = await fetch(`https://api.github.com/users/${githubUser}`, {

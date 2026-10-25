@@ -1,5 +1,11 @@
 ---
+import { getImage } from 'astro:assets';
+import { github } from '../data/github';
 import '../styles/global.css';
+
+// Favicons are made from the GitHub avatar at build time
+const favicon = await getImage({ src: github.avatar, width: 32, height: 32, format: 'png' });
+const appleIcon = await getImage({ src: github.avatar, width: 180, height: 180, format: 'png' });
 
 const description = "Artyom — front-end developer focused on clean, fast, user-focused interfaces.";
 const canonical = new URL(Astro.url.pathname, Astro.site);
@@ -12,8 +18,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content={description} />
 		<link rel="canonical" href={canonical} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/png" sizes="32x32" href={favicon.src} />
+		<link rel="apple-touch-icon" href={appleIcon.src} />
 		<meta name="generator" content={Astro.generator} />
 		<title>ArtemK.dev</title>
 	</head>
