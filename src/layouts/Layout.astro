@@ -8,6 +8,12 @@ const favicon = await getImage({ src: github.avatar, width: 32, height: 32, form
 const appleIcon = await getImage({ src: github.avatar, width: 180, height: 180, format: 'png' });
 
 const description = "Artyom — front-end developer focused on clean, fast, user-focused interfaces.";
+const links = [
+	{ href: '#about', label: 'About' },
+	{ href: '#projects', label: 'Projects' },
+	{ href: '#infrastructure', label: 'Infra' },
+	{ href: '#contact', label: 'Contact' },
+];
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -24,17 +30,52 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 		<title>ArtemK.dev</title>
 	</head>
 	<body class="bg-black text-white min-h-screen m-0">
-		<header class="flex flex-row items-center justify-between gap-4 pt-6 px-6 max-w-[68rem] mx-auto">
-			<a href="/" class="m-0 text-xl md:text-3xl">ArtemK.dev</a>
-			<nav class="flex items-center gap-4 md:gap-5 text-sm md:text-base">
-				<a href="#about" class="text-zinc-400 hover:text-white transition-colors">About</a>
-				<a href="#projects" class="text-zinc-400 hover:text-white transition-colors">Projects</a>
-				<a href="#infrastructure" class="text-zinc-400 hover:text-white transition-colors">Infra</a>
-				<a href="#contact" class="text-zinc-400 hover:text-white transition-colors">Contact</a>
+		<header class="relative pt-6 px-6 max-w-[68rem] mx-auto">
+			<div class="flex flex-row items-center justify-between gap-4">
+				<a href="/" class="m-0 text-xl md:text-3xl">ArtemK.dev</a>
+
+				<nav class="hidden md:flex items-center gap-5 text-base">
+					{links.map(link => (
+						<a href={link.href} class="text-zinc-400 hover:text-white transition-colors">{link.label}</a>
+					))}
+				</nav>
+
+				<button
+					id="menu-toggle"
+					type="button"
+					class="md:hidden group flex flex-col justify-center gap-1.5 w-10 h-10 -mr-2 items-center"
+					aria-label="Open menu"
+					aria-expanded="false"
+					aria-controls="mobile-menu"
+				>
+					<span class="block h-px w-5 bg-white transition-transform duration-200 group-aria-expanded:translate-y-[3.5px] group-aria-expanded:rotate-45"></span>
+					<span class="block h-px w-5 bg-white transition-transform duration-200 group-aria-expanded:-translate-y-[3.5px] group-aria-expanded:-rotate-45"></span>
+				</button>
+			</div>
+
+			<nav id="mobile-menu" class="md:hidden hidden absolute top-full inset-x-0 z-50 flex-col gap-1 px-6 pt-2 pb-4 bg-black/90 backdrop-blur-md border-b border-zinc-800">
+				{links.map(link => (
+					<a href={link.href} class="py-2 text-lg text-zinc-400 hover:text-white transition-colors">{link.label}</a>
+				))}
 			</nav>
 		</header>
 		<main>
 			<slot />
 		</main>
+		<script>
+			const toggle = document.getElementById('menu-toggle');
+			const menu = document.getElementById('mobile-menu');
+
+			function setOpen(open: boolean) {
+				toggle?.setAttribute('aria-expanded', String(open));
+				toggle?.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+				menu?.classList.toggle('hidden', !open);
+				menu?.classList.toggle('flex', open);
+			}
+
+			toggle?.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+			// Close after picking a section
+			menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+		</script>
 	</body>
 </html>
