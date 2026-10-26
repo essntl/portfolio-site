@@ -92,5 +92,6 @@ export const infrastructure = {
 export const contacts = [
   { label: "contact@artemk.dev", href: "mailto:contact@artemk.dev" },
   { label: "Telegram", href: "https://t.me/artemk_dev" },
+  { label: "X", href: "https://x.com/artemkdev" },
   { label: "GitHub", href: `https://github.com/${githubUser}` },
 ];
