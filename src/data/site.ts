@@ -11,7 +11,7 @@ export const stats = [
 ];
 
 // Slugs from https://simpleicons.org (icons come from the simple-icons package)
-export const stack = ["html5", "css", "javascript", "typescript", "astro", "tailwindcss", "react", "git", "nextdotjs", "docker", "proxmox", "linux"];
+export const stack = ["html5", "css", "javascript", "typescript", "astro", "tailwindcss", "react", "git", "nextdotjs", "docker", "proxmox", "cloudflare", "nginxproxymanager", "linux"];
 
 type Project = {
   title: string;
