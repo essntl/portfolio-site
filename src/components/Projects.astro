@@ -13,7 +13,9 @@ const imageProps = {
 <section id="projects" class="max-w-[68rem] mx-auto px-6 pb-20 md:pb-32">
   <SectionLabel>Projects</SectionLabel>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+  {/* data-nosnippet keeps project blurbs out of search result snippets,
+      otherwise Google may show a project's description as the site's own */}
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8" data-nosnippet>
     {projects.map(project => (
       <article class="group flex flex-col border border-zinc-800 rounded-xl overflow-hidden hover:-translate-y-0.75 hover:border-zinc-700 transition">
         <div class="aspect-8/5 overflow-hidden bg-zinc-900">
