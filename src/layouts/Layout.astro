@@ -1,13 +1,17 @@
 ---
 import { getImage } from 'astro:assets';
 import { github } from '../data/github';
+import { contacts } from '../data/site';
 import '../styles/global.css';
 
 // Favicons are made from the GitHub avatar at build time
 const favicon = await getImage({ src: github.avatar, width: 32, height: 32, format: 'png' });
 const appleIcon = await getImage({ src: github.avatar, width: 180, height: 180, format: 'png' });
+const ogImage = await getImage({ src: github.avatar, width: 512, height: 512, format: 'png' });
 
-const description = "Artyom — front-end developer focused on clean, fast, user-focused interfaces.";
+const title = 'ArtemK.dev';
+// Search engines use this as the result snippet
+const description = "Artyom, a Ukrainian front-end developer based in Norway. Building solutions for everyday problems.";
 const links = [
 	{ href: '#about', label: 'About' },
 	{ href: '#projects', label: 'Projects' },
@@ -15,6 +19,22 @@ const links = [
 	{ href: '#contact', label: 'Contact' },
 ];
 const canonical = new URL(Astro.url.pathname, Astro.site);
+
+// Structured data: tells search engines the site's name and who it belongs to
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{ '@type': 'WebSite', name: title, alternateName: 'artemk.dev', url: Astro.site?.href },
+		{
+			'@type': 'Person',
+			name: 'Artyom',
+			alternateName: 'ArtemK',
+			url: Astro.site?.href,
+			jobTitle: 'Front-end developer',
+			sameAs: contacts.filter(c => c.href.startsWith('https://')).map(c => c.href),
+		},
+	],
+};
 ---
 
 <!doctype html>
@@ -27,7 +47,15 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 		<link rel="icon" type="image/png" sizes="32x32" href={favicon.src} />
 		<link rel="apple-touch-icon" href={appleIcon.src} />
 		<meta name="generator" content={Astro.generator} />
-		<title>ArtemK.dev</title>
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content={title} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={new URL(ogImage.src, Astro.site)} />
+		<meta name="twitter:card" content="summary" />
+		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+		<title>{title}</title>
 	</head>
 	<body class="bg-black text-white min-h-screen m-0">
 		<header class="relative pt-6 px-6 max-w-[68rem] mx-auto">
